@@ -79,7 +79,7 @@ public class MovieController {
         return new ModelAndView("movie/edit");
     }
 
-    @RequestMapping(value = "/upate",method = RequestMethod.POST)
+    @RequestMapping(value = "/update",method = RequestMethod.POST)
     public String update(Movie movie, HttpServletRequest request){
         String rolename=request.getParameter("rolename");
         String actorid=request.getParameter("actorid");

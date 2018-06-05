@@ -3,6 +3,7 @@ package com.test.data.domain;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Movie {
     private Date createDate;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private List<Role> roles;
+    private List<Role> roles=new ArrayList<Role>();
 
     public Role addRole(Actor actor, String name) {
         Role role = new Role(actor, this, name);
@@ -63,4 +64,11 @@ public class Movie {
         this.createDate = createDate;
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 }
